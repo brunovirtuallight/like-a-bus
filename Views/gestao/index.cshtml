@@ -1,0 +1,58 @@
+@{
+    Layout = "_LayoutAdmin";
+}
+<hr>
+<h2>Traçar Melhor Rota</h2>
+<hr>
+   <style>
+            html, body{
+                height: 100%;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            #map{
+
+                height: 100%;
+            }
+        </style>
+              <main id="map"></main>
+        <script>
+            navigator.geolocation.getCurrentPosition(showPosition)
+
+            function showPosition(position) {
+                console.log(position)
+            }
+
+            function initMap() {
+                let lat, lng;
+
+                const showPos = function (pos) {
+                    lat = pos.coords.latitude
+                    lng = pos.coords.longitude
+
+                    new google.maps.Map(document.getElementById('map'), {
+                        center: {
+                            lat: lat,
+                            lng: lng
+                        },
+                        zoom: 6
+                    })
+                }
+
+
+                navigator.geolocation.getCurrentPosition(showPos)
+
+
+            }
+
+
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0UJdH92n_UCwHfqbqCV8HcLSasiFKeuA&callback=initMap"></script>
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        
